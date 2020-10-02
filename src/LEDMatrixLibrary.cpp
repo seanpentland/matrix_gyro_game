@@ -31,15 +31,16 @@ Example:
 The Display Control Commands control the brightness of the displays, and can turn them on or off. For this project, only
 the lowest brightness setting will be used.
 Example:
-  DisplaySendCmd(0, 0x88); //sets the first display to the lowest brightness setting
+  DisplaySendCmd(1, 0x88); //sets the second display to the lowest brightness setting
 
 Address Commands will set the column in the display that needs to be addressed. Because we are using Auto Address +1,
 only the first column will be addressed, followed by the data for each column.
 Example:
-  DisplaySendCmd(0,0xC0); //sets the address of the first column
+  DisplaySendAddr(0,0xC0); //sets the address of first display to first column
   for(int i;i<16;i++){    
     DisplaySend(0, 0xFF); //send 0xFF to display 16 times, which will turn all LEDs on
   }
+  DisplayEnd(0);
 
 --------
 
